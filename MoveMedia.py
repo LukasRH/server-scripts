@@ -3,6 +3,7 @@
 """ TODO make explanation here """
 
 import sys
+import os
 
 __author__ = "Lukas Rønsholt"
 __credits__ = []
@@ -14,7 +15,7 @@ __status__ = "Development"
 
 
 def main(argv):
-    print(str(argv))
+    os.system('wall ' + str(argv))
 
 
 if __name__ == '__main__':

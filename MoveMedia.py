@@ -14,13 +14,13 @@ __email__ = "lukasronsholt@gmail.com"
 __status__ = "Development"
 
 
-def print_download_complete(name, location):
-    msg = 'Torrent: ' + name + 'finished downloaded!\nSaved at: ' + location
+def print_download_complete(name):
+    msg = 'Torrent: ' + name + ' finished downloaded!'
     os.system('wall ' + msg)
 
 
 def move_file(src, dst):
-    os.system('mv ' + src + ' ' + dst)
+    os.system('ln -s ' + src + ' ' + dst)
 
 
 def main(argv):
@@ -38,7 +38,7 @@ def main(argv):
 
     if new_location is not None:
         move_file(location, new_location)
-        print_download_complete(file_name, new_location)
+        print_download_complete(file_name)
 
 
 if __name__ == '__main__':

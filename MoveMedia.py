@@ -14,8 +14,31 @@ __email__ = "lukasronsholt@gmail.com"
 __status__ = "Development"
 
 
+def print_download_complete(name, location):
+    msg = 'Torrent: ' + name + 'finished downloaded!\nSaved at: ' + location
+    os.system('wall ' + msg)
+
+
+def move_file(src, dst):
+    os.system('mv ' + src + ' ' + dst)
+
+
 def main(argv):
-    os.system('wall ' + str(argv))
+    new_location = None
+    file_name = argv[0]
+    category = argv[1]
+    location = argv[2]
+    movie_location = argv[3]
+    show_location = argv[4]
+
+    if category == 'Movie':
+        new_location = movie_location + file_name
+    elif category == 'Show':
+        new_location = show_location + file_name
+
+    if new_location is not None:
+        move_file(location, new_location)
+        print_download_complete(file_name, new_location)
 
 
 if __name__ == '__main__':
